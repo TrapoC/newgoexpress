@@ -102,7 +102,7 @@ function App() {
                         path="/track/:trackingNumber"
                         element={<TrackingPage />}
                       />
-                      <Route
+                      <Route // Ensure this path matches the component's expected route
                         path="/customers/:customerId"
                         element={<CustomerProfile />}
                       />
