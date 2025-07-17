@@ -18,7 +18,7 @@ const AdminDashboard: React.FC = () => {
 
   return (
     <div className="flex h-[calc(100vh-4rem)]">
-      {/* Mobile sidebar toggle */}
+
       <button
         className="md:hidden fixed bottom-6 left-6 z-50 bg-blue-600 text-white p-3 rounded-full shadow-lg"
         onClick={toggleSidebar}

@@ -5,6 +5,7 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import { ShipmentProvider } from "./contexts/ShipmentContext";
 import { ChatProvider } from "./contexts/ChatContext";
+import CustomerProfile from "./components/CustomerProfile";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import HomePage from "./pages/HomePage";
@@ -60,6 +61,10 @@ function App() {
                       <Route
                         path="/track/:trackingNumber"
                         element={<TrackingPage />}
+                      />
+                      <Route
+                        path="/customers/:customerId"
+                        element={<CustomerProfile />}
                       />
                       <Route path="/admin/login" element={<AdminLoginPage />} />
                       <Route

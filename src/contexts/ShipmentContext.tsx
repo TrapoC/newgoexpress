@@ -6,11 +6,390 @@ interface ShipmentContextType {
   getShipment: (id: string) => Promise<any>;
   createShipment: (shipment: any) => Promise<any>;
   updateShipment: (id: string, shipment: any) => Promise<any>;
-  deleteShipment: (id: string) => Promise<void>;
+  de// In src/services/api.ts
+  
+  import { createClient } from '@supabase/supabase-js';
+  
+  // 1. Initialize Supabase Client
+  // It's a best practice to store these in environment variables
+  const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
+  const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY!;
+  
+  // Ensure you have a single Supabase client instance
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  
+  const cloudBackend = {
+      // ... all your other existing functions (e.g., getAllShipments, createShipment)
+  
+      /**
+       * Retrieves all shipments for a specific customer from Supabase.
+       * @param customerId The ID of the customer whose shipments are to be fetched.
+       * @returns A promise that resolves to an array of shipments.
+       */
+      getShipmentsByCustomer: async (customerId: string): Promise<any[]> => {
+          // We assume your table is named 'shipments' and the column linking to the customer is 'customer_id'.
+          // Adjust 'customer_id' if your column name is different.
+          const { data, error } = await supabase
+              .from('shipments')
+              .select('*') // You can specify columns here, e.g., 'id, trackingNumber, status'
+              .eq('customer_id', customerId);
+  
+          if (error) {
+              console.error('Error fetching shipments by customer from Supabase:', error);
+              // Throw the error so it can be caught by the calling function in ShipmentContext
+              throw new Error(error.message);
+          }
+  
+          // 'data' will be null if no records are found, so we return an empty array to avoid issues.
+          return data || [];
+      },
+  
+      // ... other existing functions
+  };
+  
+  export default cloudBackend;
+  // In src/services/api.ts
+  
+  import { createClient } from '@supabase/supabase-js';
+  
+  // 1. Initialize Supabase Client
+  // It's a best practice to store these in environment variables
+  const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
+  const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY!;
+  
+  // Ensure you have a single Supabase client instance
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  
+  const cloudBackend = {
+      // ... all your other existing functions (e.g., getAllShipments, createShipment)
+  
+      /**
+       * Retrieves all shipments for a specific customer from Supabase.
+       * @param customerId The ID of the customer whose shipments are to be fetched.
+       * @returns A promise that resolves to an array of shipments.
+       */
+      getShipmentsByCustomer: async (customerId: string): Promise<any[]> => {
+          // We assume your table is named 'shipments' and the column linking to the customer is 'customer_id'.
+          // Adjust 'customer_id' if your column name is different.
+          const { data, error } = await supabase
+              .from('shipments')
+              .select('*') // You can specify columns here, e.g., 'id, trackingNumber, status'
+              .eq('customer_id', customerId);
+  
+          if (error) {
+              console.error('Error fetching shipments by customer from Supabase:', error);
+              // Throw the error so it can be caught by the calling function in ShipmentContext
+              throw new Error(error.message);
+          }
+  
+          // 'data' will be null if no records are found, so we return an empty array to avoid issues.
+          return data || [];
+      },
+  
+      // ... other existing functions
+  };
+  
+  export default cloudBackend;
+  // In src/services/api.ts
+  
+  import { createClient } from '@supabase/supabase-js';
+  
+  // 1. Initialize Supabase Client
+  // It's a best practice to store these in environment variables
+  const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
+  const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY!;
+  
+  // Ensure you have a single Supabase client instance
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  
+  const cloudBackend = {
+      // ... all your other existing functions (e.g., getAllShipments, createShipment)
+  
+      /**
+       * Retrieves all shipments for a specific customer from Supabase.
+       * @param customerId The ID of the customer whose shipments are to be fetched.
+       * @returns A promise that resolves to an array of shipments.
+       */
+      getShipmentsByCustomer: async (customerId: string): Promise<any[]> => {
+          // We assume your table is named 'shipments' and the column linking to the customer is 'customer_id'.
+          // Adjust 'customer_id' if your column name is different.
+          const { data, error } = await supabase
+              .from('shipments')
+              .select('*') // You can specify columns here, e.g., 'id, trackingNumber, status'
+              .eq('customer_id', customerId);
+  
+          if (error) {
+              console.error('Error fetching shipments by customer from Supabase:', error);
+              // Throw the error so it can be caught by the calling function in ShipmentContext
+              throw new Error(error.message);
+          }
+  
+          // 'data' will be null if no records are found, so we return an empty array to avoid issues.
+          return data || [];
+      },
+  
+      // ... other existing functions
+  };
+  
+  export default cloudBackend;
+  // In src/services/api.ts
+  
+  import { createClient } from '@supabase/supabase-js';
+  
+  // 1. Initialize Supabase Client
+  // It's a best practice to store these in environment variables
+  const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
+  const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY!;
+  
+  // Ensure you have a single Supabase client instance
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  
+  const cloudBackend = {
+      // ... all your other existing functions (e.g., getAllShipments, createShipment)
+  
+      /**
+       * Retrieves all shipments for a specific customer from Supabase.
+       * @param customerId The ID of the customer whose shipments are to be fetched.
+       * @returns A promise that resolves to an array of shipments.
+       */
+      getShipmentsByCustomer: async (customerId: string): Promise<any[]> => {
+          // We assume your table is named 'shipments' and the column linking to the customer is 'customer_id'.
+          // Adjust 'customer_id' if your column name is different.
+          const { data, error } = await supabase
+              .from('shipments')
+              .select('*') // You can specify columns here, e.g., 'id, trackingNumber, status'
+              .eq('customer_id', customerId);
+  
+          if (error) {
+              console.error('Error fetching shipments by customer from Supabase:', error);
+              // Throw the error so it can be caught by the calling function in ShipmentContext
+              throw new Error(error.message);
+          }
+  
+          // 'data' will be null if no records are found, so we return an empty array to avoid issues.
+          return data || [];
+      },
+  
+      // ... other existing functions
+  };
+  
+  export default cloudBackend;
+  // In src/services/api.ts
+  
+  import { createClient } from '@supabase/supabase-js';
+  
+  // 1. Initialize Supabase Client
+  // It's a best practice to store these in environment variables
+  const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
+  const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY!;
+  
+  // Ensure you have a single Supabase client instance
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  
+  const cloudBackend = {
+      // ... all your other existing functions (e.g., getAllShipments, createShipment)
+  
+      /**
+       * Retrieves all shipments for a specific customer from Supabase.
+       * @param customerId The ID of the customer whose shipments are to be fetched.
+       * @returns A promise that resolves to an array of shipments.
+       */
+      getShipmentsByCustomer: async (customerId: string): Promise<any[]> => {
+          // We assume your table is named 'shipments' and the column linking to the customer is 'customer_id'.
+          // Adjust 'customer_id' if your column name is different.
+          const { data, error } = await supabase
+              .from('shipments')
+              .select('*') // You can specify columns here, e.g., 'id, trackingNumber, status'
+              .eq('customer_id', customerId);
+  
+          if (error) {
+              console.error('Error fetching shipments by customer from Supabase:', error);
+              // Throw the error so it can be caught by the calling function in ShipmentContext
+              throw new Error(error.message);
+          }
+  
+          // 'data' will be null if no records are found, so we return an empty array to avoid issues.
+          return data || [];
+      },
+  
+      // ... other existing functions
+  };
+  
+  export default cloudBackend;
+  // In src/services/api.ts
+  
+  import { createClient } from '@supabase/supabase-js';
+  
+  // 1. Initialize Supabase Client
+  // It's a best practice to store these in environment variables
+  const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
+  const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY!;
+  
+  // Ensure you have a single Supabase client instance
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  
+  const cloudBackend = {
+      // ... all your other existing functions (e.g., getAllShipments, createShipment)
+  
+      /**
+       * Retrieves all shipments for a specific customer from Supabase.
+       * @param customerId The ID of the customer whose shipments are to be fetched.
+       * @returns A promise that resolves to an array of shipments.
+       */
+      getShipmentsByCustomer: async (customerId: string): Promise<any[]> => {
+          // We assume your table is named 'shipments' and the column linking to the customer is 'customer_id'.
+          // Adjust 'customer_id' if your column name is different.
+          const { data, error } = await supabase
+              .from('shipments')
+              .select('*') // You can specify columns here, e.g., 'id, trackingNumber, status'
+              .eq('customer_id', customerId);
+  
+          if (error) {
+              console.error('Error fetching shipments by customer from Supabase:', error);
+              // Throw the error so it can be caught by the calling function in ShipmentContext
+              throw new Error(error.message);
+          }
+  
+          // 'data' will be null if no records are found, so we return an empty array to avoid issues.
+          return data || [];
+      },
+  
+      // ... other existing functions
+  };
+  
+  export default cloudBackend;
+  // In src/services/api.ts
+  
+  import { createClient } from '@supabase/supabase-js';
+  
+  // 1. Initialize Supabase Client
+  // It's a best practice to store these in environment variables
+  const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
+  const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY!;
+  
+  // Ensure you have a single Supabase client instance
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  
+  const cloudBackend = {
+      // ... all your other existing functions (e.g., getAllShipments, createShipment)
+  
+      /**
+       * Retrieves all shipments for a specific customer from Supabase.
+       * @param customerId The ID of the customer whose shipments are to be fetched.
+       * @returns A promise that resolves to an array of shipments.
+       */
+      getShipmentsByCustomer: async (customerId: string): Promise<any[]> => {
+          // We assume your table is named 'shipments' and the column linking to the customer is 'customer_id'.
+          // Adjust 'customer_id' if your column name is different.
+          const { data, error } = await supabase
+              .from('shipments')
+              .select('*') // You can specify columns here, e.g., 'id, trackingNumber, status'
+              .eq('customer_id', customerId);
+  
+          if (error) {
+              console.error('Error fetching shipments by customer from Supabase:', error);
+              // Throw the error so it can be caught by the calling function in ShipmentContext
+              throw new Error(error.message);
+          }
+  
+          // 'data' will be null if no records are found, so we return an empty array to avoid issues.
+          return data || [];
+      },
+  
+      // ... other existing functions
+  };
+  
+  export default cloudBackend;
+  // In src/services/api.ts
+  
+  import { createClient } from '@supabase/supabase-js';
+  
+  // 1. Initialize Supabase Client
+  // It's a best practice to store these in environment variables
+  const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
+  const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY!;
+  
+  // Ensure you have a single Supabase client instance
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  
+  const cloudBackend = {
+      // ... all your other existing functions (e.g., getAllShipments, createShipment)
+  
+      /**
+       * Retrieves all shipments for a specific customer from Supabase.
+       * @param customerId The ID of the customer whose shipments are to be fetched.
+       * @returns A promise that resolves to an array of shipments.
+       */
+      getShipmentsByCustomer: async (customerId: string): Promise<any[]> => {
+          // We assume your table is named 'shipments' and the column linking to the customer is 'customer_id'.
+          // Adjust 'customer_id' if your column name is different.
+          const { data, error } = await supabase
+              .from('shipments')
+              .select('*') // You can specify columns here, e.g., 'id, trackingNumber, status'
+              .eq('customer_id', customerId);
+  
+          if (error) {
+              console.error('Error fetching shipments by customer from Supabase:', error);
+              // Throw the error so it can be caught by the calling function in ShipmentContext
+              throw new Error(error.message);
+          }
+  
+          // 'data' will be null if no records are found, so we return an empty array to avoid issues.
+          return data || [];
+      },
+  
+      // ... other existing functions
+  };
+  
+  export default cloudBackend;
+  // In src/services/api.ts
+  
+  import { createClient } from '@supabase/supabase-js';
+  
+  // 1. Initialize Supabase Client
+  // It's a best practice to store these in environment variables
+  const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
+  const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY!;
+  
+  // Ensure you have a single Supabase client instance
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  
+  const cloudBackend = {
+      // ... all your other existing functions (e.g., getAllShipments, createShipment)
+  
+      /**
+       * Retrieves all shipments for a specific customer from Supabase.
+       * @param customerId The ID of the customer whose shipments are to be fetched.
+       * @returns A promise that resolves to an array of shipments.
+       */
+      getShipmentsByCustomer: async (customerId: string): Promise<any[]> => {
+          // We assume your table is named 'shipments' and the column linking to the customer is 'customer_id'.
+          // Adjust 'customer_id' if your column name is different.
+          const { data, error } = await supabase
+              .from('shipments')
+              .select('*') // You can specify columns here, e.g., 'id, trackingNumber, status'
+              .eq('customer_id', customerId);
+  
+          if (error) {
+              console.error('Error fetching shipments by customer from Supabase:', error);
+              // Throw the error so it can be caught by the calling function in ShipmentContext
+              throw new Error(error.message);
+          }
+  
+          // 'data' will be null if no records are found, so we return an empty array to avoid issues.
+          return data || [];
+      },
+  
+      // ... other existing functions
+  };
+  
+  export default cloudBackend;
+  leteShipment: (id: string) => Promise<void>;
   updateShipmentStatus: (id: string, status: string) => Promise<void>;
   addTrackingEvent: (id: string, event: any) => Promise<void>;
   updateShipmentLocation: (id: string, location: string, details: string) => Promise<void>;
   isLoading: boolean;
+  getShipmentsByCustomer: (customerId: string) => Promise<any[]>; // Add this method
 }
 
 const ShipmentContext = createContext<ShipmentContextType | undefined>(undefined);
@@ -98,6 +477,22 @@ export const ShipmentProvider: React.FC<ShipmentProviderProps> = ({ children }) 
       setIsLoading(false);
     }
   };
+  
+  const getShipmentsByCustomer = async (customerId: string): Promise<any[]> => {
+    setIsLoading(true);
+    try {
+      console.log('ShipmentContext: Retrieving shipments for customer:', customerId);
+      const shipments = await cloudBackend.getShipmentsByCustomer(customerId);  // Assuming this method exists in your API
+      console.log('ShipmentContext: Retrieved', shipments.length, 'shipments for customer', customerId);
+      return shipments;
+    } catch (error) {
+      console.error('Error fetching shipments by customer:', error);
+      throw error;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   
   const updateShipment = async (id: string, shipment: any): Promise<any> => {
     setIsLoading(true);
@@ -188,7 +583,8 @@ export const ShipmentProvider: React.FC<ShipmentProviderProps> = ({ children }) 
     updateShipmentStatus,
     addTrackingEvent,
     updateShipmentLocation,
-    isLoading
+    isLoading,
+    getShipmentsByCustomer // Expose the new method
   };
   
   return <ShipmentContext.Provider value={value}>{children}</ShipmentContext.Provider>;

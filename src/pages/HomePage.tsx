@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Package, Search, Truck, Globe, MessageCircle, ChevronRight, Cloud, Users } from 'lucide-react';
 import TrackingForm from '../components/tracking/TrackingForm';
-import ChatWidget from '../components/chat/ChatWidget';
+import TrackShipment from './TrackShipment';
 import HeroImage from '../components/common/HeroImage';
 import translations from '../utils/translations';
 
@@ -12,10 +12,7 @@ const HomePage: React.FC = () => {
   const t = translations[language];
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const handleTrackingSubmit = (trackingNumber: string) => {
-    // Navigate to tracking page with the tracking number
-    window.location.href = `/track/${trackingNumber}`;
-  };
+  
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -31,7 +28,8 @@ const HomePage: React.FC = () => {
                 {t.heroSubtitle}
               </p>
               <TrackingForm 
-                onSubmit={handleTrackingSubmit}
+                
+                
                 className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in animation-delay-400" 
               />
             </div>
