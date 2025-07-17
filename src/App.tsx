@@ -85,8 +85,7 @@ function App() {
     );
   }
 
-  return (
-    <AuthProvider>
+return (<AuthProvider>
       <ThemeProvider>
         <LanguageProvider>
           <ShipmentProvider>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Package, Search, Truck, Globe, MessageCircle, ChevronRight, Cloud, Users } from 'lucide-react';
-import TrackingForm from '../components/tracking/TrackingForm';
+
 import TrackShipment from './TrackShipment';
 import HeroImage from '../components/common/HeroImage';
 import translations from '../utils/translations';
@@ -27,11 +27,16 @@ const HomePage: React.FC = () => {
               <p className="text-xl text-white/90 mb-8 animate-fade-in animation-delay-200">
                 {t.heroSubtitle}
               </p>
-              <TrackingForm 
+              
+              <Link
+                to="/track"
+                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in animation-delay-400 block text-center"
+              >
+                <Search className="inline w-5 h-5 mr-2" />
+                <span className="align-middle">{t.trackYourShipment || "Track Your Shipment"}</span>
                 
-                
-                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg animate-fade-in animation-delay-400" 
-              />
+              </Link>
+              
             </div>
           </div>
         </div>
