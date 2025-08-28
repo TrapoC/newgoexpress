@@ -181,7 +181,7 @@ const Footer: React.FC = () => {
                 <span>
                   +1 (252) 655-2297 <br />
                   +63 90695-05219 <br />
-                  WhatsApp:+1 (808) 460-3426
+                  WhatsApp:+1 (672) 327-0225
                 </span>
               </li>
               <li className="flex">
