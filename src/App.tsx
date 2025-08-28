@@ -1,5 +1,5 @@
 // src/App.tsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
@@ -74,44 +74,6 @@ function App() {
                           <ProtectedRoute>
                             <AdminDashboard />
                           </ProtectedRoute>
-                        }
-                      />
-                      <Route path="*" element={<NotFoundPage />} />
-                    </Routes>
-                  </main>
-                  <Footer />
-                </div>
-              </Router>
-            </ChatProvider>
-          </ShipmentProvider>
-        </LanguageProvider>
-      </ThemeProvider>
-    </AuthProvider>
-  );
-}
-
-export default App;
-                        element={
-                          <ProtectedRoute>
-                            <AdminDashboard />
-                          </ProtectedRoute>
-                        }
-                      />
-                      <Route path="*" element={<NotFoundPage />} />
-                    </Routes>
-                  </main>
-                  <Footer />
-                </div>
-              </Router>
-            </ChatProvider>
-          </ShipmentProvider>
-        </LanguageProvider>
-      </ThemeProvider>
-    </AuthProvider>
-  );
-}
-
-export default App;
                         }
                       />
                       <Route path="*" element={<NotFoundPage />} />
