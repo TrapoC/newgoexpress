@@ -1,24 +1,3 @@
-// src/components/auth/ProtectedRoute.tsx
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
-
-interface ProtectedRouteProps {
-  children: React.ReactNode;
-}
-
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const { isAuthenticated } = useAuth();
-
-  if (!isAuthenticated) {
-    return <Navigate to="/admin/login" />;
-  }
-
-  return <>{children}</>;
-};
-
-export default ProtectedRoute;
-
 // src/App.tsx
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -91,6 +70,27 @@ function App() {
                       <Route path="/admin/login" element={<AdminLoginPage />} />
                       <Route
                         path="/admin/*"
+                        element={
+                          <ProtectedRoute>
+                            <AdminDashboard />
+                          </ProtectedRoute>
+                        }
+                      />
+                      <Route path="*" element={<NotFoundPage />} />
+                    </Routes>
+                  </main>
+                  <Footer />
+                </div>
+              </Router>
+            </ChatProvider>
+          </ShipmentProvider>
+        </LanguageProvider>
+      </ThemeProvider>
+    </AuthProvider>
+  );
+}
+
+export default App;
                         element={
                           <ProtectedRoute>
                             <AdminDashboard />
