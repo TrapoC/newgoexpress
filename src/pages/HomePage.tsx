@@ -1,3 +1,67 @@
+// In src/utils/translations.ts
+export default {
+  en: {
+    // ... other translations
+    trackYourShipment: "Track Your Shipment",
+    enterTrackingNumber: "Enter tracking number",
+    track: "Track",
+    loading: "Loading...",
+    shipmentNotFound: "Shipment not found.",
+    shipmentDetails: "Shipment Details",
+    trackingNumber: "Tracking Number",
+    status: "Status",
+    // ...
+  },
+  // ... translations for other languages
+};
+// In src/utils/translations.ts
+export default {
+  en: {
+    // ... other translations
+    trackYourShipment: "Track Your Shipment",
+    enterTrackingNumber: "Enter tracking number",
+    track: "Track",
+    loading: "Loading...",
+    shipmentNotFound: "Shipment not found.",
+    shipmentDetails: "Shipment Details",
+    trackingNumber: "Tracking Number",
+    status: "Status",
+    // ...
+  },
+  // ... translations for other languages
+};
+// In src/utils/translations.ts
+export default {
+  en: {
+    // ... other translations
+    trackYourShipment: "Track Your Shipment",
+    enterTrackingNumber: "Enter tracking number",
+    track: "Track",
+    loading: "Loading...",
+    shipmentNotFound: "Shipment not found.",
+    shipmentDetails: "Shipment Details",
+    trackingNumber: "Tracking Number",
+    status: "Status",
+    // ...
+  },
+  // ... translations for other languages
+};
+// In src/utils/translations.ts
+export default {
+  en: {
+    // ... other translations
+    trackYourShipment: "Track Your Shipment",
+    enterTrackingNumber: "Enter tracking number",
+    track: "Track",
+    loading: "Loading...",
+    shipmentNotFound: "Shipment not found.",
+    shipmentDetails: "Shipment Details",
+    trackingNumber: "Tracking Number",
+    status: "Status",
+    // ...
+  },
+  // ... translations for other languages
+};
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';

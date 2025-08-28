@@ -18,26 +18,8 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 };
 
 export default ProtectedRoute;
-// src/components/auth/ProtectedRoute.tsx
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
 
-interface ProtectedRouteProps {
-  children: React.ReactNode;
-}
-
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const { isAuthenticated } = useAuth();
-
-  if (!isAuthenticated) {
-    return <Navigate to="/admin/login" />;
-  }
-
-  return <>{children}</>;
-};
-
-export default ProtectedRoute;
+// src/App.tsx
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -85,7 +67,8 @@ function App() {
     );
   }
 
-return (<AuthProvider>
+  return (
+    <AuthProvider>
       <ThemeProvider>
         <LanguageProvider>
           <ShipmentProvider>
@@ -97,11 +80,11 @@ return (<AuthProvider>
                     <Routes>
                       <Route path="/" element={<HomePage />} />
                       <Route path="/track" element={<TrackingPage />} />
+                      <Route path="/track/:trackingNumber" element={<TrackingPage />} />
+                      <Route path="/about" element={<AboutPage />} />
+                      <Route path="/contact" element={<ContactPage />} />
+                      <Route path="/services" element={<ServicesPage />} />
                       <Route
-                        path="/track/:trackingNumber"
-                        element={<TrackingPage />}
-                      />
-                      <Route // Ensure this path matches the component's expected route
                         path="/customers/:customerId"
                         element={<CustomerProfile />}
                       />
@@ -114,9 +97,23 @@ return (<AuthProvider>
                           </ProtectedRoute>
                         }
                       />
-                      <Route path="/about" element={<AboutPage />} />
-                      <Route path="/contact" element={<ContactPage />} />
-                      <Route path="/services" element={<ServicesPage />} />
+                      <Route path="*" element={<NotFoundPage />} />
+                    </Routes>
+                  </main>
+                  <Footer />
+                </div>
+              </Router>
+            </ChatProvider>
+          </ShipmentProvider>
+        </LanguageProvider>
+      </ThemeProvider>
+    </AuthProvider>
+  );
+}
+
+export default App;
+                        }
+                      />
                       <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                   </main>
