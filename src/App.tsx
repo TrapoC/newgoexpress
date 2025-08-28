@@ -6,10 +6,13 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import { ShipmentProvider } from "./contexts/ShipmentContext";
 import { ChatProvider } from "./contexts/ChatContext";
-import CustomerProfile from "./components/CustomerProfile";
+// import CustomerProfile from "./components/CustomerProfile";
+// If the file exists elsewhere, update the path accordingly, e.g.:
+// import CustomerProfile from "./pages/CustomerProfile";
+// Or, if you don't need this component, you can remove the import and related route.
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import TrackingPage from "./pages/TrackingPage";
 import AdminLoginPage from "./pages/AdminLoginPage";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -59,14 +62,17 @@ function App() {
                     <Routes>
                       <Route path="/" element={<HomePage />} />
                       <Route path="/track" element={<TrackingPage />} />
-                      <Route path="/track/:trackingNumber" element={<TrackingPage />} />
+                      <Route
+                        path="/track/:trackingNumber"
+                        element={<TrackingPage />}
+                      />
                       <Route path="/about" element={<AboutPage />} />
                       <Route path="/contact" element={<ContactPage />} />
                       <Route path="/services" element={<ServicesPage />} />
-                      <Route
+                      {/* <Route
                         path="/customers/:customerId"
                         element={<CustomerProfile />}
-                      />
+                      /> */}
                       <Route path="/admin/login" element={<AdminLoginPage />} />
                       <Route
                         path="/admin/*"
